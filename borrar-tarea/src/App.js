@@ -5,24 +5,21 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [currentTask, setCurrentTask] = useState('');
 
-  // Maneja el cambio en el campo de entrada
   const handleChange = (event) => {
     setCurrentTask(event.target.value);
   };
 
-  // Maneja el envío del formulario para agregar una tarea
   const handleSubmit = (event) => {
     event.preventDefault();
     if (currentTask.trim() !== '') {
       setTasks([...tasks, currentTask]);
-      setCurrentTask(''); // Limpia el campo de entrada
+      setCurrentTask('');
     }
   };
 
-  // Maneja la eliminación de una tarea
   const handleDelete = (index) => {
-    const updatedTasks = tasks.filter((task, i) => i !== index); // Filtra las tareas que no coinciden con el índice
-    setTasks(updatedTasks); // Actualiza el estado con las tareas filtradas
+    const updatedTasks = tasks.filter((task, i) => i !== index); 
+    setTasks(updatedTasks);
   };
 
   return (
